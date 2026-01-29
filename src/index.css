@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-mulish: 'Mulish', sans-serif;
+  --font-cardo: 'Mulish', serif;
+
+  --color-primary: #000A07;
+  --color-secondary: #323E3A;
+  --color-tertiary: #5C6261;
+  --color-link: #04644C;
+  --color-category1: #056B71;
+
+  --color-surface-banner: #FFF0D6;
+  --color-surface-base: #FFFFFF;
+  --color-surface-stroke: #EDEDED;
+  --color-icon: #323E3A;
+
+  --color-brand-primary: #04644C;
+  --color-button-primary: #04644C;
+  --color-button-secondary: #1DB45F;
+  --color-overlay-background: #000A0752;
+
+  --color-modal-info: #052917CC;
+
+}
+
+@layer base {
+  html {
+    font-family: var(--font-mulish);
+    color: var(--color-primary);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-cardo);
+  }
+
+  a {
+    color: var(--color-link);
+  }
+}
+
+.ProseMirror {
+  outline: none;
+  min-height: 300px;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.ProseMirror pre {
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+/* Make YouTube embeds responsive */
+.prose iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem; /* Optional: rounds corners */
+}
+
+
+/* Custom Tiptap Editor Styles */
+
+.tiptap ul,
+.tiptap ol {
+  padding: 0 1rem;
+  margin: 1.25rem 1rem 1.25rem 0.4rem;
+}
+
+/* Fix: Specific style for Bullet Lists */
+.tiptap ul li {
+  list-style-type: disc;
+}
+
+/* Fix: Specific style for Numbered Lists */
+.tiptap ol li {
+  list-style-type: decimal;
+}
+
+/* Spacing for paragraphs inside lists */
+.tiptap ul li p,
+.tiptap ol li p {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+/* GLOBAL SETTINGS FOR HEADINGS INSIDE TIPTAP */
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  line-height: 1.1;
+  margin-top: 2.5rem;
+  text-wrap: pretty;
+}
+
+/* MARGINS FOR H1 & H2 */
+.tiptap h1,
+.tiptap h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* FONT SIZES */
+.tiptap h1 {
+  font-size: 1.4rem;
+}
+
+.tiptap h2 {
+  font-size: 1.2rem;
+}
+
+.tiptap h3 {
+  font-size: 1.1rem;
+}
+
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  font-size: 1rem;
+}
+
+/* BLOCKQUOTE */
+.tiptap blockquote {
+  /* I replaced var(--black-3) with a color from your theme */
+  border-left: 3px solid var(--color-overlay-background);
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+/* CODE BLOCKS */
+.tiptap pre {
+  /* Replaced var(--black) with your secondary color */
+  background: var(--color-secondary);
+  border-radius: 0.5rem;
+  /* Replaced var(--white) with your surface color */
+  color: var(--color-surface-base);
+  font-family: 'JetBrainsMono', monospace;
+  /* Ensure you have imported this font! */
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+}
+
+.tiptap code {
+  background-color: var(--color-secondary);
+  border-radius: 0.4rem;
+  color: var(--color-surface-base);
+  font-size: 0.85rem;
+  padding: 0.25em 0.3em;
+}
+
+.tiptap a {
+  /* Use the variable you actually defined */
+  color: var(--color-link); 
+  cursor: pointer;
+  text-decoration: underline; /* Optional: good for accessibility */
+
+  &:hover {
+    /* You didn't define a link hover color, but you can use opacity or a specific color */
+    opacity: 0.8; 
+    /* OR define --color-link-hover in your theme and use that */
+    /* color: var(--color-link-hover); */
+  }
+}
